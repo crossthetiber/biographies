@@ -1,0 +1,58 @@
+{
+  "info": {
+    "_postman_id": "01c4102c-d255-4f2e-83a2-c6564316e50b",
+    "name": "Catholic Biographies",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Site Index",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const $ = cheerio.load(pm.response.text());",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response time is less than 5000ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(5000);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://{{hostname}}/",
+          "protocol": "https",
+          "host": ["{{hostname}}"],
+          "path": [""]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [],
+  "protocolProfileBehavior": {}
+}
